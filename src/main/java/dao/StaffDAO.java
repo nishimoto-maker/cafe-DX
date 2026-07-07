@@ -42,7 +42,6 @@ public class StaffDAO extends DAO {
             teacher.setPassword(rs.getString("password"));
             teacher.setStaff_name(rs.getString("staff_name"));
         }
-
         
         // リソースを解放（必ず閉じる）
         rs.close();
