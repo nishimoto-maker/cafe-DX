@@ -1,4 +1,4 @@
-package been;
+package bean;
 
 public class Staff implements java.io.Serializable {
 
