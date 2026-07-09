@@ -22,11 +22,11 @@ public class MenuDAO extends DAO {
         Connection con = getConnection();
         // SQL文
         PreparedStatement st = con.prepareStatement(
-            "select * from menu where menu_name like ? and menu_id <> ?"
+            "select * from menu where menu_name like ? or genre like ?"
         );
         // プレースホルダに値をセット
         st.setString(1, "%" + keyword + "%");
-        st.setString(2, "adm");
+        st.setString(2, "%" + keyword + "%");
 
         // SQL実行
         ResultSet rs = st.executeQuery();
@@ -52,42 +52,38 @@ public class MenuDAO extends DAO {
         st.close();
         con.close();
 
-        // 予約リストを返す
+        // 商品リストを返す
         return list;
     }
     
-    // ジャンルごとの商品一覧取得
-    public List<Menu> findBySchool(String genre) throws Exception {
-        // 科目情報を保存するリスト
-        List<Menu> list = new ArrayList<>();
-
+    // 商品IDごとの商品一覧取得
+    public Menu find(String menu_id) throws Exception {
+        
         // データベース接続
         Connection con = getConnection();
         // SQL文
         PreparedStatement st = con.prepareStatement(
-            "select * from menu where genre = ?"
+            "select * from menu where menu_id = ?"
         );
         // プレースホルダに値をセット
-        st.setString(1, genre);
+        st.setString(1, menu_id);
 
         // SQL実行
         ResultSet rs = st.executeQuery();
 
-        // 検索結果を1行ずつ取り出す
-        while (rs.next()) {
-        	
-        	// 商品オブジェクト作成
-            Menu m = new Menu();
-            
-            // DBデータ → Menuオブジェクト
+        // データの入っていない状態
+        Menu m = null;
+
+        // 検索結果が1件あるか確認しデータベースの値を1個ずつ入れる、
+        if (rs.next()) {
+        	// オブジェクト作成
+            m = new Menu();
+
             m.setMenu_id(rs.getString("menu_id"));
             m.setMenu_name(rs.getString("menu_name"));
             m.setPrice(rs.getInt("price"));
             m.setGenre(rs.getString("genre"));
             m.setServe(rs.getBoolean("serve"));
-
-            // リストに追加
-            list.add(m);
         }
 
         // SQL終了
@@ -95,8 +91,8 @@ public class MenuDAO extends DAO {
         st.close();
         con.close();
 
-        // 予約リスト返却
-        return list;
+        // 商品情報を返却
+        return m;
     }
 
     // 商品情報を追加
@@ -128,6 +124,37 @@ public class MenuDAO extends DAO {
         st.close();
         con.close();
 
+
+        // 追加された行数を返す
+        return line;
+    }
+    
+    // 商品情報変更・更新
+    public int update(Menu menu) throws Exception {
+
+        // DB接続
+        Connection con = getConnection();
+
+        // UPDATE文
+        PreparedStatement st = con.prepareStatement(
+            "update menu set menu_name = ?, price = ?, serve = ? where menu_id = ?"
+        );
+        
+        // 商品名
+        st.setString(1, menu.getMenu_name());
+        // 値段
+        st.setInt(2, menu.getPrice());
+        // 提供フラグ
+        st.setBoolean(3, menu.getServe());
+        // 商品ID
+        st.setString(4, menu.getMenu_id());
+        
+        // SQL実行
+        int line = st.executeUpdate();
+
+        // 終了処理
+        st.close();
+        con.close();
 
         // 追加された行数を返す
         return line;
