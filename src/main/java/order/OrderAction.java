@@ -2,6 +2,8 @@ package order;
 
 import java.util.List;
 
+import bean.Menu;
+import dao.MenuDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
@@ -10,9 +12,9 @@ public class OrderAction extends Action {
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
 	throws Exception {
 		// 商品一覧を取得する。
-		// 各名前、インポートは要確認
+		// 全件取得のメソッドを作ってもらう
 		MenuDAO dao = new MenuDAO();
-		List<menu> list = dao.getMenu();
+		List<Menu> list = dao.getMenu();
 		
 		req.setAttribute("menus", list);
 		
