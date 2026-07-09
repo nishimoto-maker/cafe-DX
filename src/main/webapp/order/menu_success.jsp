@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 
-<%@include file="../header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <div class="right">
 <h2>商品管理</h2><br>
@@ -10,4 +10,4 @@
 </div>
 </div>
 
-<%@include file="../footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>

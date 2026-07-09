@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 
-<%@include file="../header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <div class="right">
 <h2><a href="${pageContext.request.contextPath}/cafeDX/#">商品管理</a></h2><br>
@@ -27,4 +27,4 @@
 
 </div>
 
-<%@include file="../footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>
