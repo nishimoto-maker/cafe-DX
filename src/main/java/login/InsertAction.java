@@ -1,6 +1,6 @@
 package login;
 
-import been.Staff;
+import bean.Staff;
 import dao.StaffDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
