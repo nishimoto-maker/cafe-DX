@@ -68,11 +68,11 @@ public class StaffDAO extends DAO {
         st.setString(1, staff.getStaff_id());
         
         // 2つ目の?に名前をセット
-        st.setString(3, staff.getStaff_name());
+        st.setString(2, staff.getStaff_name());
 
 
         // 3つ目の?にパスワードをセット
-        st.setString(2, staff.getPassword());
+        st.setString(3, staff.getPassword());
 
         // SQLを実行
         int line = st.executeUpdate();
