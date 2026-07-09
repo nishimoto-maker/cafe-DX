@@ -45,11 +45,11 @@ public class LoginAction extends Action {
             
             // ログイン名が管理者(admin)の場合
             if ("admin".equals(staff.getStaff_id())) {
-                return "/kanri/menu2.jsp";
+                return "/order/#";
             }
 
             // ログイン成功ページへ遷移
-            return "/kanri/menu.jsp";
+            return "/order/menu_create.jsp";
         } else {
         	// ログイン名とパスワードが一致しない場合(ログイン失敗)
         	// ユーザーが見つからなかった場合(ログイン失敗)
