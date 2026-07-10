@@ -23,15 +23,13 @@
 			<td>値段：${ menu.price }</td>
 			<td>ジャンル：${ menu.genre }</td>
 			<td>
-				<form action="OrderRegister.action">
-					<p><input type="hidden" name="id" value="${ menu.menu_id }"></p>
-					<p>個数：<input type="number" name="count" value="1" min="1"></p>
-					<p>テーブル番号：
-					<select name="tableNum">
-						<c:forEach var="i" begin="1" end="10">
-							<option value="${ i }">${ i }</option>
-						</c:forEach>
-					</select>
+				<form action="MenuGet.action">
+					<p>
+						<input
+							type="hidden"
+							name="id"
+							value="${ menu.menu_id }"
+						>
 					</p>
 					<p><input type="submit" value="注文を追加"></p>
 				</form>
