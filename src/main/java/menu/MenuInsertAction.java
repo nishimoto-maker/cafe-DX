@@ -1,4 +1,4 @@
-package order;
+package menu;
 
 import bean.Menu;
 import dao.MenuDAO;
