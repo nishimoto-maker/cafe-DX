@@ -11,8 +11,9 @@ import tool.Action;
 public class OrderAction extends Action {
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
 	throws Exception {
-		// 商品一覧を取得する。
-		// 全件取得のメソッドを作ってもらう
+		// ジャンルで絞り込んで取得する
+		// 指定しなければ全部取得
+		// 作ってもらうか、自分で作るか
 		MenuDAO dao = new MenuDAO();
 		List<Menu> list = dao.getMenu();
 		
