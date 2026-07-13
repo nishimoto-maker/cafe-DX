@@ -1,4 +1,4 @@
-package order;
+package menu;
 
 import java.util.ArrayList;
 import java.util.List;
