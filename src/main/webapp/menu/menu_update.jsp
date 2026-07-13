@@ -5,7 +5,7 @@
 
 <%@include file="../loginheader.jsp" %>
 
-<div class="right">
+<div class="container">
 <h2><a href="${pageContext.request.contextPath}/menu/menu-list.jsp">商品管理</a></h2><br>
 
 <!-- 商品登録情報入力フォーム -->

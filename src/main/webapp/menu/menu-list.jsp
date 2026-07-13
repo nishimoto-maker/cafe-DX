@@ -1,74 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="bean.Menu" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!-- JSTL（繰り返し処理など）を使う宣言 -->
 
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>メニュー一覧</title>
-
-<style>
-body{
-    font-family:"Yu Gothic","Meiryo",sans-serif;
-    background:#f4f4f4;
-}
-
-.container{
-    width:900px;
-    margin:40px auto;
-    background:#fff;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-h2{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th,td{
-    border:1px solid #ccc;
-    padding:10px;
-    text-align:center;
-}
-
-th{
-    background:#6f4e37;
-    color:white;
-}
-
-.button{
-    margin-top:20px;
-    text-align:right;
-}
-
-.button a{
-    display:inline-block;
-    padding:10px 20px;
-    background:#007bff;
-    color:#fff;
-    text-decoration:none;
-    border-radius:5px;
-}
-
-.button a:hover{
-    background:#0056b3;
-}
-</style>
-
-</head>
-<body>
-
+<%@include file="../loginheader.jsp" %>
 <div class="container">
 
 <h2>メニュー一覧</h2>
@@ -112,6 +46,3 @@ th{
 </table>
 
 </div>
-
-</body>
-</html>

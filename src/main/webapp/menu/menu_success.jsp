@@ -2,7 +2,7 @@
 
 <%@include file="../loginheader.jsp" %>
 
-<div class="right">
+<div class="container">
 <h2>商品管理</h2><br>
 <div class="message-box">
 <h4>${message}</h4>
