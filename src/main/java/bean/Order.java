@@ -2,6 +2,7 @@ package bean;
 
 import java.sql.Date;
 
+// 注文テーブルへ登録するときに使う
 public class Order implements java.io.Serializable {
 	private int order_id;
 	private String tableNum;
