@@ -2,6 +2,7 @@ package bean;
 
 import java.sql.Date;
 
+// 注文について詳細を確認するときに使う
 public class OrderDetail implements java.io.Serializable {
 	private int orderId;
 	private String menuId;
