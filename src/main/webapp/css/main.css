@@ -5,6 +5,101 @@ body{
     background:#f4f4f4;
 }
 
+/* ログインカード */
+.login-form{
+    width:400px;
+    margin:40px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+
+/* タイトル */
+.login-form h4{
+    color:#6f4e37;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+/* 入力行 */
+.login-form p{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:15px 0;
+}
+
+.login-form label{
+    width:110px;
+    text-align:right;
+    margin-right:10px;
+    font-size:16px;
+    font-weight: bold;
+}
+
+/* 入力欄 */
+.login-form input[type="text"],
+.login-form input[type="password"]{
+    width:200px;
+    padding:6px;
+    margin:6px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+
+/* ログインボタン */
+.login-form input[type="submit"]{
+    display:inline-block;
+    width:30%;
+    padding:8px 0;
+    margin-top:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:14px;
+    cursor:pointer;
+    box-sizing:border-box;
+}
+
+.login-form input[type="submit"]:hover{
+    background:#0056b3;
+}
+
+
+/* エラー表示 */
+.error{
+    color:red;
+    font-weight:bold;
+    margin:10px;
+}
+
+
+/* 新規登録リンク */
+.btn-link{
+    display:inline-block;
+    width:30%;
+    padding:8px 0;
+    margin-top:10px;
+    background:#007bff;
+    color:white;
+    border-radius:5px;
+    font-size:14px;
+    cursor:pointer;
+    text-decoration:none;
+    text-align:center;
+    box-sizing:border-box;
+}
+
+.btn-link:hover{
+    background:#0056b3;
+}
+
 .container{
     width:900px;
     margin:40px auto;
