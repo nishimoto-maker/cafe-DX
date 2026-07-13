@@ -13,6 +13,11 @@
 	スイッチ文使えるか
 -->
 <form action="Order.action" method="post">
+	<h3>商品名で検索</h3>
+	<p><input type="text" name="keyword"></p>
+
+	<hr>
+	
 	<h3>ジャンルでソート</h3>
 	<p>
 		<c:forEach var="genre" items="${ genres }">
