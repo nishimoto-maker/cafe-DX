@@ -54,5 +54,5 @@ public class MenuUpdateAction extends Action {
         	return "/order/menu_success.jsp";           
         }
     }
-    
+
 }
