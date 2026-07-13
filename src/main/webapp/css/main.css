@@ -71,15 +71,6 @@ body{
     background:#0056b3;
 }
 
-
-/* エラー表示 */
-.error{
-    color:red;
-    font-weight:bold;
-    margin:10px;
-}
-
-
 /* 新規登録リンク */
 .btn-link{
     display:inline-block;
@@ -112,6 +103,60 @@ body{
 h2{
     text-align:center;
     margin-bottom:30px;
+    color:brown;
+    font-size:28px;
+}
+
+h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h2 a:hover {
+    opacity: 0.8;
+}
+
+/* メニュー画面 */
+.menu-box{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:30px;
+}
+
+
+/* 各メニューカード */
+.box{
+    width:220px;
+    height:100px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* メニューリンク */
+.box a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+    text-decoration:none;
+    color:white;
+    background:burlywood;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+
+.box a:hover{
+    background:brown;
 }
 
 table{
@@ -146,4 +191,110 @@ th{
 
 .button a:hover{
     background:#0056b3;
+}
+
+/* 商品一覧画面 */
+
+/* 説明文 */
+.container h3{
+    color:#6f4e37;
+    font-size:16px;
+    margin-top:20px;
+}
+
+
+/* 検索フォーム */
+.container form{
+    margin:20px 0;
+    text-align:left;
+}
+
+
+.container input[type="text"]{
+    width:250px;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+
+/* 検索ボタン */
+.search-btn{
+    padding:8px 20px;
+    margin-left:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.search-btn:hover{
+    background:#0056b3;
+}
+
+
+/* 更新ボタン */
+.reserve-btn{
+    display:block;
+    margin:0 auto;
+    padding:6px 15px;
+    background:burlywood;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+.reserve-btn:hover{
+    background:#8b5a2b;
+}
+
+/* 商品登録フォーム */
+/* input-form */
+.input-form {
+    width:450px;
+    margin:30px auto !important;
+    display:block;
+}
+
+.input-form input[type="text"],
+.input-form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* ジャンル選択だけ丸くする */
+.input-form select{
+    border-radius:5px;
+}
+
+.input-form h3 {
+    text-align: center;
+    color: #8b5a2b;
+    font-size:20px;
+    margin-bottom:25px;
+
+}
+
+.input-form p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.inline-form {
+    display: inline;
+}
+
+
+/* error */
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: pre-line;
 }
