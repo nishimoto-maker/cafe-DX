@@ -5,12 +5,18 @@
 <%@include file="../loginheader.jsp" %>
 <div class="container">
 
-<h2>メニュー一覧</h2>
+<h2>商品一覧</h2>
 
 <div class="button">
     <a href="menu_create.jsp">新規登録</a>
 </div>
 
+<h3>商品名またはジャンルを入力してください。</h3>
+
+<form action="/cafeDX/menu/Menu.action" method="post">
+    <input type="text" name="keyword" placeholder="商品名またはジャンルを入力">
+    <input type="submit" value="検索" class="search-btn">
+</form>
 
 <table>
 
@@ -44,5 +50,9 @@
 
 
 </table>
+
+<div class="button">
+    <a href="menu2.jsp">メニューへ</a>
+</div>
 
 </div>

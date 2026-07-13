@@ -25,10 +25,12 @@ public class MenuAction extends Action {
 
         // キーワードが未入力（null）の場合は空文字にする
         if (keyword == null) keyword = "";
+        
+        String sortBy = keyword;
 
         // DAOを使って商品検索
         MenuDAO dao = new MenuDAO();
-        List<Menu> list = dao.search(keyword);
+		List<Menu> list = dao.search(keyword, sortBy);
 
         // 検索結果をセッションに保存（JSPで使うため）
         session.setAttribute("list", list);
@@ -37,3 +39,4 @@ public class MenuAction extends Action {
         return "/menu/menu-list.jsp";
     }
 }
+ 
