@@ -1,6 +1,5 @@
 package menu;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import bean.Menu;
@@ -30,21 +29,11 @@ public class MenuAction extends Action {
         // DAOを使って商品検索
         MenuDAO dao = new MenuDAO();
         List<Menu> list = dao.search(keyword);
-        
-        // 提供中だけを入れるリスト
-        List<Menu> attendlist = new ArrayList<>();
-        
-        // serveがTrueの商品だけ追加
-        for (Menu m : list) {
-        	if (m.getServe()) {
-        		attendlist.add(m);
-        	}
-        }
 
         // 検索結果をセッションに保存（JSPで使うため）
-        session.setAttribute("list", attendlist);
+        session.setAttribute("list", list);
 
         // .jspへフォワード
-        return "/menu/menu-list.jsp#";
+        return "/menu/menu-list.jsp";
     }
 }

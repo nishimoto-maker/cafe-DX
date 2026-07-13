@@ -3,14 +3,14 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!-- JSTL（繰り返し処理など）を使う宣言 -->
 
-<%@include file="../header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <div class="right">
-<h2><a href="${pageContext.request.contextPath}/cafeDX/">商品管理</a></h2><br>
+<h2><a href="${pageContext.request.contextPath}/menu/menu-list.jsp">商品管理</a></h2><br>
 
 <!-- 商品登録情報入力フォーム -->
 
-<form class="input-form" action="/cafeDX/order/MenuUpdate.action" method="post">
+<form class="input-form" action="/cafeDX/menu/MenuUpdate.action" method="post">
 <h3>商品情報の変更・更新</h3>
 <input type="hidden" name="menu_id" value="${menu.menu_id}">
 <input type="hidden" name="menu_name" value="${menu.menu_name}">
@@ -25,4 +25,4 @@
 
 </div>
 
-<%@include file="../footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>

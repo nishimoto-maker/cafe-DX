@@ -32,11 +32,6 @@ public class MenuUpdateAction extends Action {
         	
         	// 元データを必ず取得
             Menu menu = dao.find(menu_id);
-
-            // 入力値を上書き（保持のため）
-            menu.setMenu_name(menu_name);
-            menu.setPrice(Integer.parseInt(price));
-            menu.setServe(serve);
             
             // 未入力チェック（最小）
             if ( price == null || price.equals("") ) {
@@ -47,6 +42,9 @@ public class MenuUpdateAction extends Action {
    
                 return "/menu/menu_update.jsp";
             }
+            // 入力値を上書き（保持のため）
+            menu.setPrice(Integer.parseInt(price));
+            menu.setServe(serve);
             
         	dao.update(menu);
         	

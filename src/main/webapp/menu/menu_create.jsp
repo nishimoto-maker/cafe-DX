@@ -3,10 +3,10 @@
 <%@include file="../loginheader.jsp" %>
 
 <div class="right">
-<h2><a href="${pageContext.request.contextPath}/cafeDX/#">商品管理</a></h2><br>
+<h2><a href="${pageContext.request.contextPath}/menu/menu-list.jsp">商品管理</a></h2><br>
 
 <!-- 商品新規登録情報入力フォーム -->
-<form class="input-form" action="/cafeDX/order/MenuInsert.action" method="post">
+<form class="input-form" action="/cafeDX/menu/MenuInsert.action" method="post">
     <h3>商品新規登録</h3>
     <p>商品ID：<input type="text" name="menu_id"></p>
     <p class="error">${error1}</p>

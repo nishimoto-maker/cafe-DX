@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="bean.Menu" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<!-- JSTL（繰り返し処理など）を使う宣言 -->
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -70,6 +73,11 @@ th{
 
 <h2>メニュー一覧</h2>
 
+<div class="button">
+    <a href="menu_create.jsp">新規登録</a>
+</div>
+
+
 <table>
 
 <tr>
@@ -81,36 +89,27 @@ th{
     <th>更新</th>
 </tr>
 
-<%
-List<Menu> list = (List<Menu>)request.getAttribute("list");
-
-if(list != null){
-    for(Menu menu : list){
-%>
+<!-- list（StudentActionでセッションに入れた）を繰り返し -->
+<c:forEach var="menu" items="${list}">
 
 <tr>
-    <td><%= menu.getMenuId() %></td>
-    <td><%= menu.getMenuName() %></td>
-    <td>¥<%= menu.getPrice() %></td>
-    <td><%= menu.getGenre() %></td>
-    <td><%= menu.isServe() ? "〇" : "×" %></td>
+    <td>${menu.menu_id}</td>
+    <td>${menu.menu_name}</td>
+    <td>${menu.price}</td>
+    <td>${menu.genre}</td>
+    <td>${menu.serve ? "〇" : "×"}</td>
     <td>
-        <a href="MenuEditAction?menu_id=<%= menu.getMenuId() %>">
-            更新
-        </a>
+      <form action="/cafeDX/menu/MenuUpdate.action" method="post">
+		    <input type="hidden" name="menu_id" value="${menu.menu_id}">
+		    <input type="submit" value="変更・更新" class="reserve-btn">
+	  </form>
     </td>
 </tr>
 
-<%
-    }
-}
-%>
+</c:forEach>
+
 
 </table>
-
-<div class="button">
-    <a href="menu-add.jsp">新規登録</a>
-</div>
 
 </div>
 
