@@ -1,4 +1,4 @@
-package order;
+package menu;
 
 import bean.Menu;
 import dao.MenuDAO;
@@ -39,13 +39,13 @@ public class MenuInsertAction extends Action {
         		genre == null || genre.equals("")) {
         	request.setAttribute("error",
         			"＊未入力があります\n＊商品ID、商品名、値段、ジャンルを入力してください");
-            return "/order/menu_create.jsp";
+            return "/menu/menu_create.jsp";
         }
             
         // 重複確認
         if (dao.isExist(menu_id)) {
         	request.setAttribute("error1", "＊この商品IDは既に使われています");
-            return "/order/menu_create.jsp";
+            return "/menu/menu_create.jsp";
         }
         // 文字列を数値に変換
         int price = Integer.parseInt(priceStr);
@@ -71,10 +71,10 @@ public class MenuInsertAction extends Action {
         // lineは「更新された行数」
         if (line > 0) {
         	request.setAttribute("message", "＊商品情報を登録しました");
-        	return "/order/menu_success.jsp";
+        	return "/menu/menu_success.jsp";
         } else {
             request.setAttribute("error", "＊登録に失敗しました");
-            return "/order/menu_create.jsp";
+            return "/menu/menu_create.jsp";
         }
 
        

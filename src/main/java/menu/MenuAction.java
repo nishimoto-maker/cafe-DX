@@ -45,6 +45,6 @@ public class MenuAction extends Action {
         session.setAttribute("list", attendlist);
 
         // .jspへフォワード
-        return "/cafe/DX#";
+        return "/menu/menu-list.jsp#";
     }
 }

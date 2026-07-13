@@ -1,4 +1,4 @@
-package order;
+package menu;
 
 import bean.Menu;
 import dao.MenuDAO;
@@ -25,7 +25,7 @@ public class MenuUpdateAction extends Action {
         if ( menu_name == null ) {
         	Menu menu = dao.find(menu_id);
             request.setAttribute("menu", menu);
-            return "/order/menu_update.jsp";
+            return "/menu/menu_update.jsp";
         } else {
         	String price = request.getParameter("price");
         	Boolean serve = request.getParameter("serve") != null;
@@ -45,13 +45,13 @@ public class MenuUpdateAction extends Action {
             	
                 request.setAttribute("menu", menu);
    
-                return "/order/menu_update.jsp";
+                return "/menu/menu_update.jsp";
             }
             
         	dao.update(menu);
         	
         	request.setAttribute("message", "＊商品情報を更新しました");
-        	return "/order/menu_success.jsp";           
+        	return "/menu/menu_success.jsp";           
         }
     }
 
