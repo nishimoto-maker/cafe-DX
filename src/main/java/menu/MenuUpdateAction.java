@@ -1,4 +1,4 @@
-package menu;
+package order;
 
 import bean.Menu;
 import dao.MenuDAO;
@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
 
 
-public class StudentUpdateAction extends Action {
+public class MenuUpdateAction extends Action {
 
 	// executeメソッド：FrontControllerから呼ばれるメイン処理
     public String execute(
@@ -25,7 +25,7 @@ public class StudentUpdateAction extends Action {
         if ( menu_name == null ) {
         	Menu menu = dao.find(menu_id);
             request.setAttribute("menu", menu);
-            return "/caheDX/#";
+            return "/order/menu_update.jsp";
         } else {
         	String price = request.getParameter("price");
         	Boolean serve = request.getParameter("serve") != null;
@@ -39,20 +39,19 @@ public class StudentUpdateAction extends Action {
             menu.setServe(serve);
             
             // 未入力チェック（最小）
-            if ( menu_name == null || menu_name.equals("") ||
-            		price == null || price.equals("") ) {
+            if ( price == null || price.equals("") ) {
             	request.setAttribute("error",
-            			"＊未入力があります\n＊商品名、値段を入力してください");
+            			"＊未入力があります\n＊値段を入力してください");
             	
                 request.setAttribute("menu", menu);
    
-                return "/cafeDX/#";
+                return "/order/menu_update.jsp";
             }
             
         	dao.update(menu);
         	
         	request.setAttribute("message", "＊商品情報を更新しました");
-        	return "/cafeDX/#";           
+        	return "/order/menu_success.jsp";           
         }
     }
 
