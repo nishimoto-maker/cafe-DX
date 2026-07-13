@@ -14,7 +14,7 @@ import bean.Menu;
 public class MenuDAO extends DAO {
 
     // 商品名検索
-    public List<Menu> search(String keyword) throws Exception {
+    public List<Menu> search(String keyword, String sortBy) throws Exception {
         // 商品情報を保存するリスト
         List<Menu> list = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class MenuDAO extends DAO {
         );
         // プレースホルダに値をセット
         st.setString(1, "%" + keyword + "%");
-        st.setString(2, "%" + keyword + "%");
+        st.setString(2, "%" + sortBy + "%");
 
         // SQL実行
         ResultSet rs = st.executeQuery();

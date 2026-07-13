@@ -20,16 +20,19 @@ public class OrderAction extends Action {
 			ジャンルでソートできるように、
 			ジャンル一覧も一緒に送る
 		*/
-		// sortByで条件指定するメニュー取得と
 		// ジャンル一覧の取得をするメソッドを作ってほしいです
 		
 		String sortBy = req.getParameter("sort_by");
 		if (sortBy == null) {
 			sortBy = "";
 		}
+		String keyword = req.getParameter("keyword");
+		if (keyword == null) {
+			keyword = "";
+		}
 		
 		MenuDAO dao = new MenuDAO();
-		List<Menu> menus = dao.getMenu(sortBy);
+		List<Menu> menus = dao.search(keyword, sortBy);
 		List<String> ganres = dao.getGenre();
 		
 		req.setAttribute("menus", menus);
