@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>月別売上</title>
 
-<link rel="stylesheet" href="/uriage111/css/monthlySales.css">
+<link rel="stylesheet" href="/cafeDX/css/monthlySales.css">
 
 </head>
 
