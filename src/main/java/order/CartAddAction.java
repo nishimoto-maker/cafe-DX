@@ -2,7 +2,7 @@
 受け取るもの：menu_id, count, tableNum
 
 session属性にcartリストを生成し、
-order単位で格納していく
+od単位で格納していく
 
 遷移先で一覧表示したいんだけど、
 リクエストと同じ感じで取り出せたはず
@@ -15,7 +15,9 @@ package order;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Order;
+import bean.Menu;
+import bean.OrderDetail;
+import dao.MenuDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -27,14 +29,17 @@ public class CartAddAction extends Action {
 	throws Exception {
 		HttpSession session = req.getSession();
 		
-		String menu_id = req.getParameter("menu_id");
+		String menuId = req.getParameter("menu_id");
+		MenuDAO mdao = new MenuDAO();
+		Menu menu = mdao.find(menuId);
+		
 		int count = Integer.parseInt(req.getParameter("count"));
-		String tableNum = req.getParameter("tabelNum");
+		String tableNum = req.getParameter("tableNum");
 		int stock = Integer.parseInt(req.getParameter("stock"));
 		
-		List<Order> cart = (List<Order>)session.getAttribute("cart");
+		List<OrderDetail> cart = (List<OrderDetail>)session.getAttribute("cart");
 		if (cart == null) {
-			cart = new ArrayList<Order>();
+			cart = new ArrayList<OrderDetail>();
 			session.setAttribute("cart", cart);
 		}
 		
@@ -42,12 +47,12 @@ public class CartAddAction extends Action {
 			return "order_cart_error.jsp";
 		}
 		
-		Order order = new Order();
-		order.setCount(count);
-		order.setMenuId(menu_id);
-		order.setTableNum(tableNum);
+		OrderDetail od = new OrderDetail();
+		od.setCount(count);
+		od.setMenu(menu);
+		od.setTableNum(tableNum);
 		
-		cart.add(order);
+		cart.add(od);
 		
 		return "order_cart_ok.jsp";
 	}
