@@ -68,4 +68,20 @@ public class StockDAO extends DAO {
 		con.close();
 		return line;
 	}
+	
+	public int getStock(String menuId) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "select stock from stock_count where menu_id = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		int stock = 0;
+		
+		if (rs.next()) {
+			stock = rs.getInt("stock_count");
+		}
+		
+		return stock;
+	}
 }
