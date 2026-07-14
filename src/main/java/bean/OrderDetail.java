@@ -5,9 +5,7 @@ import java.sql.Date;
 // 注文について詳細を確認するときに使う
 public class OrderDetail implements java.io.Serializable {
 	private int orderId;
-	private String menuId;
-	private String menuName;
-	private int price;
+	private Menu menu;
 	private Date orderedAt;
 	private int count;
 	private String tableNum;
@@ -17,16 +15,8 @@ public class OrderDetail implements java.io.Serializable {
 	    return orderId;
 	}
 
-	public String getMenuId() {
-	    return menuId;
-	}
-
-	public String getMenuName() {
-	    return menuName;
-	}
-
-	public int getPrice() {
-	    return price;
+	public Menu getMenu() {
+		return menu;
 	}
 
 	public Date getOrderedAt() {
@@ -46,16 +36,8 @@ public class OrderDetail implements java.io.Serializable {
 	    this.orderId = orderId;
 	}
 
-	public void setMenuId(String menuId) {
-	    this.menuId = menuId;
-	}
-
-	public void setMenuName(String menuName) {
-	    this.menuName = menuName;
-	}
-
-	public void setPrice(int price) {
-	    this.price = price;
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 
 	public void setOrderedAt(Date orderedAt) {
