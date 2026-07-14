@@ -17,6 +17,7 @@ public class OrderDAO extends DAO {
 		st.setInt(3, order.getCount());
 		
 		int line = st.executeUpdate();
+		
 		st.close();
 		con.close();
 		
