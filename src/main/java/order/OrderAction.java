@@ -20,7 +20,6 @@ public class OrderAction extends Action {
 			ジャンルでソートできるように、
 			ジャンル一覧も一緒に送る
 		*/
-		// ジャンル一覧の取得をするメソッド勝手に作ったろかな
 		
 		String sortBy = req.getParameter("sort_by");
 		if (sortBy == null) {
