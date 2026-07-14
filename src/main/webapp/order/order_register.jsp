@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../tool/header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <!-- 
 MenuGetAction.javaからmenu、在庫数を受け取る
@@ -48,4 +48,4 @@ MenuGetAction.javaからmenu、在庫数を受け取る
 
 <p><a href="Order.action">メニュー一覧に戻る</a></p>
 
-<%@include file="../tool/footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>

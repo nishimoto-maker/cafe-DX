@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../tool/header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <!-- カート内の注文を登録出来た時に表示するページ -->
 <h2>カートに追加しました！</h2>
@@ -12,4 +12,4 @@
 <a href="order_cart.jsp">カートページへ</a>
 
 
-<%@include file="../tool/footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-<%@include file="../tool/header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <h1>注文トップ</h1>
 
@@ -70,4 +70,4 @@
 	*/
 </script>
 
-<%@include file="../tool/footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>

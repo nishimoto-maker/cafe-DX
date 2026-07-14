@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../tool/header.jsp" %>
+<%@include file="../loginheader.jsp" %>
 
 <!--
 カートページ
@@ -39,4 +39,4 @@ DBから消すことないか、カートの中から除けばいいから簡単
 
 <a href="Order.Action">メニューに戻る</a>
 
-<%@include file="../tool/footer.jsp" %>
+<%@include file="../loginfooter.jsp" %>
