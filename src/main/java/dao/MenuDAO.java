@@ -186,4 +186,33 @@ public class MenuDAO extends DAO {
 
         return exists;
     }
+    
+    // ジャンル一覧取得
+    public List<String> getGenre() throws Exception {
+        // 商品情報を保存するリスト
+        List<String> genres = new ArrayList<>();
+    	
+    	// DB接続を取得
+    	Connection con = getConnection();
+    	
+    	// SQLを準備
+    	PreparedStatement st = con.prepareStatement(
+    		"select distinct genre from menu"
+    	);
+    	
+        // SQL実行
+        ResultSet rs = st.executeQuery();
+        // 検索結果を1行ずつ取り出す
+        while (rs.next()) {
+            // リストに追加
+            genres.add(rs.getString("genre"));
+        }
+        
+        // リソースを解放（必ず閉じる）
+        rs.close();
+        st.close();
+        con.close();
+        
+        return genres;
+    }
 }

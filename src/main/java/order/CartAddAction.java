@@ -30,11 +30,16 @@ public class CartAddAction extends Action {
 		String menu_id = req.getParameter("menu_id");
 		int count = Integer.parseInt(req.getParameter("count"));
 		String tableNum = req.getParameter("tabelNum");
+		int stock = Integer.parseInt(req.getParameter("stock"));
 		
 		List<Order> cart = (List<Order>)session.getAttribute("cart");
 		if (cart == null) {
 			cart = new ArrayList<Order>();
 			session.setAttribute("cart", cart);
+		}
+		
+		if (count > stock) {
+			return "order_cart_error.jsp";
 		}
 		
 		Order order = new Order();

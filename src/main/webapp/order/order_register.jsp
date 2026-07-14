@@ -23,6 +23,7 @@ MenuGetAction.javaからmenu、在庫数を受け取る
 
 <form action="CartAdd.action" method="post">
 	<p><input type="hidden" name="menu_id" value="${ menu.menu_id }"></p>
+	<p><input type="hidden" name="stock" value="${ stock }"></p>
 	<p>
 		テーブル番号：
 		<select name="tableNum">
