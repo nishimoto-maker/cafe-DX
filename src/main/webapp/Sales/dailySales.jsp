@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>日別売上</title>
 
-<link rel="stylesheet" href="/uriage111/css/dailySales.css">
+<link rel="stylesheet" href="/cafeDX/css/dailySales.css">
 
 </head>
 <body>
