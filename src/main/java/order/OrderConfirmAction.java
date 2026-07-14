@@ -4,6 +4,7 @@ Orderに入れていき、List<Order>に格納していく
 
 package order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.Order;
@@ -23,16 +24,17 @@ public class OrderConfirmAction extends Action {
 		List<OrderDetail> cart = (List<OrderDetail>)session.getAttribute("cart");
 		
 		OrderDAO odao = new OrderDAO();
-		int line = 0;
+		List<Order> orders = new ArrayList<>();
 		
 		for (OrderDetail od : cart) {
 			Order o = new Order();
 			o.setTableNum(od.getTableNum());
 			o.setMenuId(od.getMenu().getMenu_id());
 			o.setCount(od.getCount());
-			
-			line += odao.insert(o);
+			orders.add(o);
 		}
+		
+		int line = odao.insert(orders);
 		
 		req.setAttribute("line", line);
 		return "order_confirm_ok.jsp";
