@@ -11,6 +11,16 @@
 </head>
 <body>
 
+<!-- 
+	aタグやformタグでサーブレットに行きたいときは、
+	○○.actionに揃える
+	これを○○Action.javaに変換して遷移させるようになっている
+	単にjspファイルに行くだけなら、そのjspファイル名を書く
+	
+	読んだらファイル名もとに戻してください
+	もとのファイル名：dailySales.jsp
+ -->
+
 <div class="header">
 
     <a href="SalesMenuServlet" class="back-btn">
