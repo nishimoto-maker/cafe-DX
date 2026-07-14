@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>売上詳細</title>
 
-<link rel="stylesheet" href="/uriage111/css/salesDetail.css">
+<link rel="stylesheet" href="/cafeDX/css/salesDetail.css">
 
 </head>
 
