@@ -16,7 +16,7 @@
 </div>
 
 <div class="box">
-<a href="/cafeDX/SalesMenuServlet/">売上管理</a>
+<a href="/cafeDX/SalesMenu/">売上管理</a>
 </div>
 
 <div class="box">
