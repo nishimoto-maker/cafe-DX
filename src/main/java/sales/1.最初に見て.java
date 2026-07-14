@@ -28,6 +28,7 @@ public class DailySalesAction extends Action {
 			読んだらこのJavaファイルの名前をクラスの名前と同じに直して下さい
 		*/
 		
+		return "dailySales.jsp";
 	}
 	
 	
