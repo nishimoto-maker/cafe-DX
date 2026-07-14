@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/salesReport")
-public class SalesReport extends HttpServlet {
+public class SalesReportServlet extends HttpServlet {
 
     @Override
     protected void doGet(
