@@ -14,15 +14,12 @@ public class CartRemoveAction extends Action {
 	throws Exception {
 		HttpSession session = req.getSession();
 		
-		int orderId = Integer.parseInt(req.getParameter("orderId"));
-		
 		List<OrderDetail> cart = (List<OrderDetail>)session.getAttribute("cart");
 		
-		for (OrderDetail o : cart) {
-			if (o.getOrderId() == orderId) {
-				cart.remove(o);
-				break;
-			}
+		int ODindex = Integer.parseInt(req.getParameter("ODindex"));
+		
+		if (ODindex >= 0 && ODindex < cart.size()) {
+			cart.remove(ODindex);
 		}
 		
 		return "order_cart.jsp";
