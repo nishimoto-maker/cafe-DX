@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>売上レポート</title>
 
-<link rel="stylesheet" href="/uriage111/css/salesReport.css">
+<link rel="stylesheet" href="/cafeDX/css/salesReport.css">
 
 </head>
 
