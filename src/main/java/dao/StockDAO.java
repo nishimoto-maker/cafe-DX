@@ -63,5 +63,9 @@ public class StockDAO extends DAO {
 		st.setInt(2, stock.getStatus());
 		st.setInt(3, stock.getStock_id());
 		int line = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		return line;
 	}
 }
