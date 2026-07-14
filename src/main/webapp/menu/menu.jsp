@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 
-<%@include file="../loginheader.jsp" %>
+<%@include file="../header.jsp" %>
 
 <div class="container">
 <h2>メニュー</h2><br>

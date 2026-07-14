@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!-- JSTL（繰り返し処理など）を使う宣言 -->
 
-<%@include file="../loginheader.jsp" %>
+<%@include file="../header.jsp" %>
 <div class="container">
 
 <h2>商品一覧</h2>
