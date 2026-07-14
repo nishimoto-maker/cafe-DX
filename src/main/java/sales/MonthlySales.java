@@ -1,4 +1,4 @@
-package servlet;
+package sales;
 
 import java.io.IOException;
 
@@ -8,17 +8,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/salesDetail")
-public class SalesDetail extends HttpServlet {
-	
-	@Override
-	protected void doGet(
+@WebServlet("/monthlySales")
+public class MonthlySales extends HttpServlet {
+
+    @Override
+    protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
 
         request.getRequestDispatcher(
-                "/Sales/salesDetail.jsp")
+                "/Sales/monthlySales.jsp")
                 .forward(request, response);
     }
 }

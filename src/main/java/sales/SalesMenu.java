@@ -1,4 +1,4 @@
-package servlet;
+package sales;
 
 import java.io.IOException;
 

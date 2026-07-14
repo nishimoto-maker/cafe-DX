@@ -1,4 +1,4 @@
-package servlet;
+package sales;
 
 import java.io.IOException;
 
@@ -8,16 +8,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/dailySales")
-public class DailySales extends HttpServlet {
+@WebServlet("/salesReport")
+public class SalesReport extends HttpServlet {
 
+    @Override
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
 
         request.getRequestDispatcher(
-                "/Sales/dailySales.jsp")
+                "/Sales/salesReport.jsp")
                 .forward(request, response);
     }
 }
