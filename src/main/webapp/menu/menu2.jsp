@@ -16,7 +16,7 @@
 </div>
 
 <div class="box">
-<a href="/cafeDX/#/#">売上管理</a>
+<a href="/cafeDX/Sales/#">売上管理</a>
 </div>
 
 <div class="box">
