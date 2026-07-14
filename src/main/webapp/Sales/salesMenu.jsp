@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>売上管理メニュー</title>
 
-<link rel="stylesheet" href="/uriage111/css/salesMenu.css">
+<link rel="stylesheet" href="/cafeDX/css/salesMenu.css">
 
 </head>
 
