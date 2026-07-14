@@ -25,7 +25,6 @@ public class MenuGetAction extends Action {
 		MenuDAO mdao = new MenuDAO();
 		Menu menu = mdao.find(id);
 		
-		// menu_idで検索して在庫数を取得するメソッドを作ってもらう
 		StockDAO sdao = new StockDAO();
 		int stock = sdao.getStock(id);
 		
