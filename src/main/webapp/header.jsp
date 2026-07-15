@@ -11,15 +11,15 @@
 <body>
   <div class="title">
     <c:choose>
-      <c:when test="${sessionScope.teacher.teacher_id == 'admin'}">
-        <a href="${pageContext.request.contextPath}/kanri/menu2.jsp">得点管理システム</a>
+      <c:when test="${sessionScope.staff.staff_id == 'admin'}">
+        <a href="${pageContext.request.contextPath}/cafeDX/menu2.jsp">cafeDXシステム</a>
       </c:when>
       <c:otherwise>
-        <a href="${pageContext.request.contextPath}/kanri/menu.jsp">得点管理システム</a>
+        <a href="${pageContext.request.contextPath}/cafeDX/menu.jsp">cafeDXシステム</a>
       </c:otherwise>
     </c:choose>
   </div>
   
-  <div class="user">${sessionScope.teacher.teacher_name}様
-    <a href="/karubi/login/logout-in.jsp">ログアウト</a>
+  <div class="user">${sessionScope.staff.staff_name}様
+    <a href="/cafeDX/login/logout-in.jsp">ログアウト</a>
   </div>
