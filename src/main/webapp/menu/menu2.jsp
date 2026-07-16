@@ -8,11 +8,11 @@
 <div class="menu-box">
 
 <div class="box">
-<a href="/cafeDX/order/#">注文管理</a>
+<a href="${ pageContext.request.contextPath }/order/Order.action">注文管理</a>
 </div>
 
 <div class="box">
-<a href="/cafeDX/#/#">会計管理</a>
+<a href="${ pageContext.request.contextPath }/checkout/checkout_top.jsp">会計管理</a>
 </div>
 
 <div class="box">
