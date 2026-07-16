@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!-- JSTL（繰り返し処理など）を使う宣言 -->
 
-<%@include file="../loginheader.jsp" %>
+<%@include file="../header.jsp" %>
 
 <div class="container">
 <h2><a href="${pageContext.request.contextPath}/menu/menu-list.jsp">商品管理</a></h2><br>
