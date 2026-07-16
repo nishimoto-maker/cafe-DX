@@ -8,7 +8,7 @@ StudentGetAction.java参照
 送り先：order_register.jsp
 */
 
-package menu;
+package order;
 
 import bean.Menu;
 import dao.MenuDAO;
@@ -20,7 +20,7 @@ import tool.Action;
 public class MenuGetAction extends Action {
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
 	throws Exception {
-		String id = req.getParameter("id");
+		String id = req.getParameter("MenuId");
 		
 		MenuDAO mdao = new MenuDAO();
 		Menu menu = mdao.find(id);
