@@ -40,10 +40,10 @@ MenuGetAction.javaからmenu、在庫数を受け取る
 				<input type="number" name="count" min="1" max="${stock}">
 				<input type="submit" value="カートに追加">
 			</c:when>
+			<c:otherwise>
+				在庫無しのため、追加不可
+			</c:otherwise>
 		</c:choose>
-		<c:otherwise>
-			在庫無しのため、追加不可
-		</c:otherwise>
 	</p>
 </form>
 
