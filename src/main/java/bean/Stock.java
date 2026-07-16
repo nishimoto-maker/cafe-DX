@@ -1,16 +1,21 @@
 package bean;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Stock {
-    private Integer stock_id;
-    private String menu_id;
-    private Integer stock_count;
-    private Integer change_count;
-    private String reason;
-    private LocalDateTime update_at;
-    private Integer status;
-    // 0:在庫なし, 1:在庫あり
+public class Stock implements Serializable {
+    
+    // ステータス定数
+    public static final int STATUS_OUT_OF_STOCK = 0; // 在庫なし
+    public static final int STATUS_IN_STOCK = 1;     // 在庫あり
+
+    private Integer stock_id;     // 在庫ID
+    private String menu_id;       // メニューID
+    private Integer stock_count;  // 現在の在庫数
+    private Integer change_count; // 変動数
+    private String reason;        // 在庫変動の理由
+    private LocalDateTime update_at; // 更新日時
+    private Integer status;       // ステータス (0:在庫なし, 1:在庫あり)
 
     public Integer getStock_id() { return stock_id; }
     public void setStock_id(Integer stock_id) { this.stock_id = stock_id; }
