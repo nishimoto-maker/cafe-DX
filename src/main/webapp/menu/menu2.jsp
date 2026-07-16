@@ -24,7 +24,7 @@
 </div>
 
 <div class="box">
-<a href="/cafeDX/menu/Menu.action">商品管理</a>
+<a href="${ pageContext.request.contextPath }/menu/Menu.action">商品管理</a>
 </div>
 
 
