@@ -4,12 +4,12 @@
 <form class ="login-form" action="/cafeDX/login/Login.action" method="post">
     <h4>ログイン</h4>
     <p>
-        ログイン名：
+        <label>ログイン名：</label>
         <input type="text" name="staff_id">
     </p>
 
     <p>
-        パスワード：
+        <label>パスワード：</label>
         <input type="password" name="password">
     </p>
     <p class="error">${error}</p>

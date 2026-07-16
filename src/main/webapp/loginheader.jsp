@@ -4,6 +4,6 @@
 <head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <meta charset="UTF-8">
-<title>得点管理システム</title>
+<title>cafeDXシステム</title>
 </head>
 <body>

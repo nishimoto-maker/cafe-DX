@@ -1,6 +1,5 @@
-package order;
+package menu;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import bean.Menu;
@@ -26,25 +25,18 @@ public class MenuAction extends Action {
 
         // キーワードが未入力（null）の場合は空文字にする
         if (keyword == null) keyword = "";
+        
+        String sortBy = keyword;
 
         // DAOを使って商品検索
         MenuDAO dao = new MenuDAO();
-        List<Menu> list = dao.search(keyword);
-        
-        // 提供中だけを入れるリスト
-        List<Menu> attendlist = new ArrayList<>();
-        
-        // serveがTrueの商品だけ追加
-        for (Menu m : list) {
-        	if (m.getServe()) {
-        		attendlist.add(m);
-        	}
-        }
+		List<Menu> list = dao.search(keyword, sortBy);
 
         // 検索結果をセッションに保存（JSPで使うため）
-        session.setAttribute("list", attendlist);
+        session.setAttribute("list", list);
 
         // .jspへフォワード
-        return "/cafe/DX#";
+        return "/menu/menu-list.jsp";
     }
 }
+ 
