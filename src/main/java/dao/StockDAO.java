@@ -84,4 +84,23 @@ public class StockDAO extends DAO {
         }
         return null;
     }
+    
+    // 
+    public int getStock(String menuId) throws Exception {
+        String sql = "SELECT stock_count FROM stock WHERE menu_id = ?";
+        
+        try (Connection con = getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            
+            st.setString(1, menuId);
+            
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                	int stock = rs.getInt("stock_count");
+                	return stock;
+                }
+            }
+        }
+        return 0;
+    }
 }
