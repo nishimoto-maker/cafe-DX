@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../loginheader.jsp" %>
 
-<h1>注文トップ</h1>
+<h2>注文トップ</h2>
 
 <div class="menu-box">
 	<div class="box">
@@ -19,16 +19,13 @@
 </div>
 <hr>
 <!-- 
-	ジャンルでソートできるようにする。最後。
-	今どのジャンルでソートしてるか分かるようにJavaScript実装
-	ジャンルたくさんあるから、JavaScript大変そう
-	スイッチ文使えるか
-	日本語で表示することにした
+	ジャンルでソートできるようにする
+	今どのジャンルでソートしてるか分かるように表示
 -->
 <form action="Order.action" method="post">
 	<h3>商品名で検索</h3>
 	<p>「 ${ keyword } 」で検索中、、、</p>
-	<p><input type="text" name="keyword"></p>
+	<p><input type="text" name="keyword" placeholder="商品名を入力"></p>
 	
 	<h3>ジャンルでソート</h3>
 	<p>「 ${ sort_by } 」でソート中、、、</p>
@@ -40,7 +37,7 @@
 		</c:forEach>
 	</p>
 	
-	<input type="submit" value="検索">
+	<input type="submit" value="検索" class="search-btn">
 </form>
 
 <hr>

@@ -31,7 +31,7 @@ public class OrderAction extends Action {
 		}
 		
 		MenuDAO dao = new MenuDAO();
-		List<Menu> menus = dao.search(keyword, sortBy);
+		List<Menu> menus = dao.searchOrder(keyword, sortBy);
 		List<String> ganres = dao.getGenre();
 		
 		req.setAttribute("keyword", keyword);
