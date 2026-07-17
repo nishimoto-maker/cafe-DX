@@ -20,14 +20,28 @@ public class MenuDAO extends DAO {
 
         // データベース接続
         Connection con = getConnection();
+        
         // SQL文
-        PreparedStatement st = con.prepareStatement(
-            "select * from menu where menu_name like ? or genre like ?"
-        );
-        // プレースホルダに値をセット
-        st.setString(1, "%" + keyword + "%");
-        st.setString(2, "%" + sortBy + "%");
-
+        String sql = "select * from menu where 1 = 1";
+        // 検索条件が送信されていればwhere句追加
+        if (keyword != null && !keyword.isEmpty()) {
+        	sql += (" and menu_name like ?");
+        }
+        
+        if (sortBy != null && !sortBy.isEmpty()) {
+        	sql += (" and genre like ?");
+        }
+        
+        PreparedStatement st = con.prepareStatement(sql);
+        
+        int index = 1;
+        if (keyword != null && !keyword.isEmpty()) {
+        	st.setString(index++, "%" + keyword + "%");
+        }
+        if (sortBy != null && !sortBy.isEmpty()) {
+        	st.setString(index++, "%" + sortBy + "%");
+        }
+        
         // SQL実行
         ResultSet rs = st.executeQuery();
         // 検索結果を1行ずつ取り出す
