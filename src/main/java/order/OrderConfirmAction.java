@@ -36,6 +36,8 @@ public class OrderConfirmAction extends Action {
 		
 		int line = odao.insert(orders);
 		
+		cart = null;
+		
 		req.setAttribute("line", line);
 		return "order_confirm_ok.jsp";
 	}
