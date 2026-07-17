@@ -34,6 +34,8 @@ public class OrderAction extends Action {
 		List<Menu> menus = dao.search(keyword, sortBy);
 		List<String> ganres = dao.getGenre();
 		
+		req.setAttribute("keyword", keyword);
+		req.setAttribute("sort_by", sortBy);
 		req.setAttribute("menus", menus);
 		req.setAttribute("genres", ganres);
 		
