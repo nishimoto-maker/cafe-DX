@@ -23,6 +23,13 @@ public class CheckoutAction extends Action {
 		
 		OrderDAO dao = new OrderDAO();
 		List<Payment> payments = dao.getCheckouts(tableNum);
+		
+		int total = 0;
+		for (Payment p : payments) {
+			total += p.getSubtotal();
+		}
+		
+		req.setAttribute("total", total);
 		req.setAttribute("payments", payments);
 		req.setAttribute("tableNum", tableNum);
 		

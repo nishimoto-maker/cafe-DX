@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../header.jsp" %>
 
-<h3>${ tableNum }番テーブルのお会計</h3>
+<h2>${ tableNum }番テーブルのお会計</h2>
 
 <table>
 	<c:forEach var="p" items="${payments}">
@@ -15,6 +15,8 @@
 		</tr>
 	</c:forEach>
 </table>
+
+<h4>合計：${ total }円</h4>
 
 <form action="CheckoutConfirm.action" method="post">
 	<input type="hidden" name="tableNum" value="${ tableNum }">
