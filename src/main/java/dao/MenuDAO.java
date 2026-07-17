@@ -12,9 +12,50 @@ import bean.Menu;
 
 // DAOクラス（DB操作を担当するクラス）
 public class MenuDAO extends DAO {
+    public List<Menu> search(String keyword) throws Exception {
+        // 商品情報を保存するリスト
+        List<Menu> list = new ArrayList<>();
+
+        // データベース接続
+        Connection con = getConnection();
+        // SQL文
+        PreparedStatement st = con.prepareStatement(
+            "select * from menu where menu_name like ? or genre like ?"
+        );
+        // プレースホルダに値をセット
+        st.setString(1, "%" + keyword + "%");
+        st.setString(2, "%" + keyword + "%");
+
+        // SQL実行
+        ResultSet rs = st.executeQuery();
+        // 検索結果を1行ずつ取り出す
+        while (rs.next()) {
+
+            // 商品オブジェクト作成
+            Menu m = new Menu();
+
+            // DBデータ → Menuオブジェクト
+            m.setMenu_id(rs.getString("menu_id"));
+            m.setMenu_name(rs.getString("menu_name"));
+            m.setPrice(rs.getInt("price"));
+            m.setGenre(rs.getString("genre"));
+            m.setServe(rs.getBoolean("serve"));
+
+            // リストに追加
+            list.add(m);
+        }
+
+        // SQL終了
+        rs.close();
+        st.close();
+        con.close();
+
+        // 商品リストを返す
+        return list;
+    }
 
     // 商品名検索
-    public List<Menu> search(String keyword, String sortBy) throws Exception {
+    public List<Menu> searchOrder(String keyword, String sortBy) throws Exception {
         // 商品情報を保存するリスト
         List<Menu> list = new ArrayList<>();
 
