@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../loginheader.jsp" %>
 
 <!--
@@ -16,6 +17,20 @@ DBから消すことないか、カートの中から除けばいいから簡単
 確認画面とか無しで、ボタン押したらカートから消して、
 またこのページに帰ってくるように
 -->
+<div class="menu-box">
+	<div class="box">
+		<a href="OrderConfirm.action">
+			注文を確定する
+		</a>
+	</div>
+	<div class="box">
+		<a href="Order.action">
+			メニューに戻る
+		</a>
+	</div>
+</div>
+
+<br>
 
 <table style="border-collapse:separate;border-spacing:10px">
 	<c:forEach var="OrderDetail" items="${ cart }" varStatus="status">
@@ -36,8 +51,5 @@ DBから消すことないか、カートの中から除けばいいから簡単
 	</c:forEach>
 </table>
 
-<a href="OrderConfirm.action">注文を確定する</a>
-
-<a href="Order.Action">メニューに戻る</a>
 
 <%@include file="../loginfooter.jsp" %>
