@@ -18,8 +18,6 @@
         <p>商品名: ${stock.menu_name}</p>
         <p>商品ID: ${stock.menu_id}</p>
         <p>現在の在庫数: ${stock.stock_count}</p>
-        
-        <%-- type="text"に変更し、一貫性を持たせます --%>
         <p>調整数量: <input type="text" name="stock_count" id="stock_count" value="${stock_count}" required></p>
         <p>理由: <input type="text" name="reason"></p>
         
