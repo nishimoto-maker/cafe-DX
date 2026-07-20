@@ -20,11 +20,13 @@
 
     <table border="1">
         <tr>
-            <th>商品ID</th><th>在庫数</th><th>変動</th><th>理由</th><th>更新日時</th><th>ステータス</th><th>操作</th>
+            <th>商品名</th><th>商品ID</th><th>在庫数</th><th>変動</th><th>理由</th><th>更新日時</th><th>ステータス</th><th>操作</th>
         </tr>
         <%-- 在庫リストを展開 --%>
         <c:forEach var="stock" items="${list}">
             <tr>
+            
+                <td>${stock.menu_name}</td>
                 <td>${stock.menu_id}</td>
                 <td>${stock.stock_count}</td>
                 <td>${stock.change_count}</td>
@@ -42,5 +44,13 @@
             </tr>
         </c:forEach>
     </table>
+    
+    <c:if test="${empty list}">
+        <p>※現在、登録されている在庫データはありません。</p>
+    </c:if>
+    
+    <br>
+    <hr>
+    <a href="${pageContext.request.contextPath}/menu/menu.jsp">メインメニューに戻る</a>
 </body>
 </html>

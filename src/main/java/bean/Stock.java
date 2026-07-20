@@ -9,6 +9,7 @@ public class Stock implements Serializable {
     public static final int STATUS_OUT_OF_STOCK = 0; // 在庫なし
     public static final int STATUS_IN_STOCK = 1;     // 在庫あり
 
+    private String menu_name;
     private Integer stock_id;     // 在庫ID
     private String menu_id;       // メニューID
     private Integer stock_count;  // 現在の在庫数
@@ -17,6 +18,9 @@ public class Stock implements Serializable {
     private LocalDateTime update_at; // 更新日時
     private Integer status;       // ステータス (0:在庫なし, 1:在庫あり)
 
+    public String getMenu_name() { return menu_name; }
+    public void setMenu_name(String menu_name) { this.menu_name = menu_name; }
+    
     public Integer getStock_id() { return stock_id; }
     public void setStock_id(Integer stock_id) { this.stock_id = stock_id; }
 

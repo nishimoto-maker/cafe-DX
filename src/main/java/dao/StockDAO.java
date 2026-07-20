@@ -84,4 +84,21 @@ public class StockDAO extends DAO {
         }
         return null;
     }
+    
+    public int getStock(String menuId) throws Exception {
+        String sql = "SELECT stock_count FROM stock WHERE menu_id = ? ORDER BY update_at DESC LIMIT 1";
+        
+        try (Connection con = getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            
+            st.setString(1, menuId);
+            
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("stock_count");
+                }
+            }
+        }
+        return 0; // データが見つからない場合は在庫0として扱う
+    }
 }

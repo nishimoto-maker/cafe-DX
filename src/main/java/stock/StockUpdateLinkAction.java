@@ -1,6 +1,8 @@
 package stock;
 
+import bean.Menu;
 import bean.Stock;
+import dao.MenuDAO;
 import dao.StockDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,6 +27,15 @@ public class StockUpdateLinkAction extends Action {
         
         // 指定IDのデータを取得
         Stock stock = new StockDAO().get(id);
+        
+        if (stock != null) {
+            Menu m = new MenuDAO().find(stock.getMenu_id());
+            if (m != null) {
+                stock.setMenu_name(m.getMenu_name());
+            } else {
+                stock.setMenu_name("不明な商品");
+            }
+        }
         
         // データをスコープにセットして更新画面へ
         request.setAttribute("stock", stock);

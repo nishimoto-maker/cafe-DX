@@ -15,6 +15,7 @@
         <%-- hiddenでmenu_idを送信 --%>
         <input type="hidden" name="menu_id" value="${stock.menu_id}">
         
+        <p>商品名: ${stock.menu_name}</p>
         <p>商品ID: ${stock.menu_id}</p>
         <p>現在の在庫数: ${stock.stock_count}</p>
         
