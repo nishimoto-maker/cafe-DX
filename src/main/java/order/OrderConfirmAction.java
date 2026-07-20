@@ -36,6 +36,10 @@ public class OrderConfirmAction extends Action {
 		
 		int line = odao.insert(orders);
 		
+		if (line > 0) {
+		    session.removeAttribute("cart");
+		}
+		
 		req.setAttribute("line", line);
 		return "order_confirm_ok.jsp";
 	}

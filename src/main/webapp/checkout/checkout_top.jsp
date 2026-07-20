@@ -5,6 +5,15 @@
 
 <h2>お会計を計算します</h2>
 
+<div class="menu-box">
+	<div class="box">
+		<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
+			ホームページに戻る
+		</a>
+	</div>
+</div>
+<hr>
+
 <h4>お会計をするテーブル番号を指定してください</h4>
 <form action="Checkout.action">
 	<select name="tableNum">
@@ -14,4 +23,5 @@
 	</select>
 	<input type="submit" value="送信">
 </form>
+
 <%@include file="../loginfooter.jsp" %>

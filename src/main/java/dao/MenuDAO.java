@@ -12,9 +12,7 @@ import bean.Menu;
 
 // DAOクラス（DB操作を担当するクラス）
 public class MenuDAO extends DAO {
-
-    // 商品名検索
-    public List<Menu> search(String keyword, String sortBy) throws Exception {
+    public List<Menu> search(String keyword) throws Exception {
         // 商品情報を保存するリスト
         List<Menu> list = new ArrayList<>();
 
@@ -26,8 +24,65 @@ public class MenuDAO extends DAO {
         );
         // プレースホルダに値をセット
         st.setString(1, "%" + keyword + "%");
-        st.setString(2, "%" + sortBy + "%");
+        st.setString(2, "%" + keyword + "%");
 
+        // SQL実行
+        ResultSet rs = st.executeQuery();
+        // 検索結果を1行ずつ取り出す
+        while (rs.next()) {
+
+            // 商品オブジェクト作成
+            Menu m = new Menu();
+
+            // DBデータ → Menuオブジェクト
+            m.setMenu_id(rs.getString("menu_id"));
+            m.setMenu_name(rs.getString("menu_name"));
+            m.setPrice(rs.getInt("price"));
+            m.setGenre(rs.getString("genre"));
+            m.setServe(rs.getBoolean("serve"));
+
+            // リストに追加
+            list.add(m);
+        }
+
+        // SQL終了
+        rs.close();
+        st.close();
+        con.close();
+
+        // 商品リストを返す
+        return list;
+    }
+
+    // 商品名検索
+    public List<Menu> searchOrder(String keyword, String sortBy) throws Exception {
+        // 商品情報を保存するリスト
+        List<Menu> list = new ArrayList<>();
+
+        // データベース接続
+        Connection con = getConnection();
+        
+        // SQL文
+        String sql = "select * from menu where 1 = 1";
+        // 検索条件が送信されていればwhere句追加
+        if (keyword != null && !keyword.isEmpty()) {
+        	sql += (" and menu_name like ?");
+        }
+        
+        if (sortBy != null && !sortBy.isEmpty()) {
+        	sql += (" and genre like ?");
+        }
+        
+        PreparedStatement st = con.prepareStatement(sql);
+        
+        int index = 1;
+        if (keyword != null && !keyword.isEmpty()) {
+        	st.setString(index++, "%" + keyword + "%");
+        }
+        if (sortBy != null && !sortBy.isEmpty()) {
+        	st.setString(index++, "%" + sortBy + "%");
+        }
+        
         // SQL実行
         ResultSet rs = st.executeQuery();
         // 検索結果を1行ずつ取り出す

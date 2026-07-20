@@ -29,7 +29,7 @@ public class CartAddAction extends Action {
 	throws Exception {
 		HttpSession session = req.getSession();
 		
-		String menuId = req.getParameter("menu_id");
+		String menuId = req.getParameter("menuId");
 		MenuDAO mdao = new MenuDAO();
 		Menu menu = mdao.find(menuId);
 		

@@ -3,22 +3,32 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../loginheader.jsp" %>
 
-<h1>注文トップ</h1>
+<h2>注文トップ</h2>
 
+<div class="menu-box">
+	<div class="box">
+		<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
+			ホームページに戻る
+		</a>
+	</div>
+	<div class="box">
+		<a href="order_cart.jsp">
+			カートを見る
+		</a>
+	</div>
+</div>
 <hr>
 <!-- 
-	ジャンルでソートできるようにする。最後。
-	今どのジャンルでソートしてるか分かるようにJavaScript実装
-	ジャンルたくさんあるから、JavaScript大変そう
-	スイッチ文使えるか
+	ジャンルでソートできるようにする
+	今どのジャンルでソートしてるか分かるように表示
 -->
 <form action="Order.action" method="post">
 	<h3>商品名で検索</h3>
-	<p><input type="text" name="keyword"></p>
-
-	<hr>
+	<p>「 ${ keyword } 」で検索中、、、</p>
+	<p><input type="text" name="keyword" placeholder="商品名を入力"></p>
 	
 	<h3>ジャンルでソート</h3>
+	<p>「 ${ sort_by } 」でソート中、、、</p>
 	<p>
 		<c:forEach var="genre" items="${ genres }">
 			<input type="radio" id="${ genre }"
@@ -27,7 +37,7 @@
 		</c:forEach>
 	</p>
 	
-	<input type="submit" value="検索">
+	<input type="submit" value="検索" class="search-btn">
 </form>
 
 <hr>
@@ -49,7 +59,7 @@
 					<p>
 						<input
 							type="hidden"
-							name="id"
+							name="menuId"
 							value="${ menu.menu_id }"
 						>
 					</p>
@@ -59,15 +69,5 @@
 		</tr>
 	</c:forEach>
 </table>
-
-<script>
-	/* ジャンル何があるか分からないので聞かなきゃ 
-	const sortBy = ${ sort_by }
-
-	switch (sortBy) {
-		case "";
-	}
-	*/
-</script>
 
 <%@include file="../loginfooter.jsp" %>

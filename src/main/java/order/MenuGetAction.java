@@ -20,13 +20,13 @@ import tool.Action;
 public class MenuGetAction extends Action {
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
 	throws Exception {
-		String id = req.getParameter("MenuId");
+		String menuId = req.getParameter("menuId");
 		
 		MenuDAO mdao = new MenuDAO();
-		Menu menu = mdao.find(id);
+		Menu menu = mdao.find(menuId);
 		
 		StockDAO sdao = new StockDAO();
-		int stock = sdao.getStock(id);
+		int stock = sdao.getStock(menuId);
 		
 		req.setAttribute("menu", menu);
 		req.setAttribute("stock", stock);
