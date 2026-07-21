@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="bean.SalesBean" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,19 +13,9 @@
 </head>
 <body>
 
-<!-- 
-	aタグやformタグでサーブレットに行きたいときは、
-	○○.actionに揃える
-	これを○○Action.javaに変換して遷移させるようになっている
-	単にjspファイルに行くだけなら、そのjspファイル名を書く
-	
-	読んだらファイル名もとに戻してください
-	もとのファイル名：dailySales.jsp
- -->
-
 <div class="header">
 
-    <a href="SalesMenuServlet" class="back-btn">
+    <a href="/cafeDX/sales/SalesMenu.action" class="back-btn">
         ← 戻る
     </a>
 
@@ -33,12 +25,44 @@
 
 <div class="container">
 
-    <!-- ここに検索フォーム -->
+    <form action="/cafeDX/sales/DailySales.action" method="post">
 
-    <!-- ここに一覧表 -->
+        日付：
+        <input type="date" name="salesDate">
+
+        <input type="submit" value="検索">
+
+    </form>
+
+    <br>
+
+    <table>
+        <tr>
+            <th>日付</th>
+            <th>売上金額</th>
+        </tr>
+
+        <%
+        List<SalesBean> salesList =
+            (List<SalesBean>)request.getAttribute("salesList");
+
+        if(salesList != null){
+            for(SalesBean s : salesList){
+        %>
+
+        <tr>
+            <td><%= s.getDate() %></td>
+            <td><%= s.getTotal() %>円</td>
+        </tr>
+
+        <%
+            }
+        }
+        %>
+
+    </table>
 
 </div>
-
 
 </body>
 </html>
