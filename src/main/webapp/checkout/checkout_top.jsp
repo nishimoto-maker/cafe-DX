@@ -3,28 +3,25 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../loginheader.jsp" %>
 
-<div class="container">
+<h2>お会計を計算します</h2>
 
-	<h2>お会計を計算します</h2>
-	
-	<div class="menu-box">
-		<div class="button">
-			<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
-				ホームページに戻る
-			</a>
-		</div>
+<div class="menu-box">
+	<div class="box">
+		<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
+			ホームページに戻る
+		</a>
 	</div>
-	<hr>
-	
-	<h4>お会計をするテーブル番号を指定してください</h4>
-	<form action="Checkout.action">
-		<select name="tableNum">
-			<c:forEach var="i" begin="1" end="10">
-				<option value="${i}">${i}</option>
-			</c:forEach>
-		</select>
-		<input type="submit" value="送信" class="submit-btn">
-	</form>
-	
 </div>
+<hr>
+
+<h4>お会計をするテーブル番号を指定してください</h4>
+<form action="Checkout.action">
+	<select name="tableNum">
+		<c:forEach var="i" begin="1" end="10">
+			<option value="${i}">${i}</option>
+		</c:forEach>
+	</select>
+	<input type="submit" value="送信">
+</form>
+
 <%@include file="../loginfooter.jsp" %>

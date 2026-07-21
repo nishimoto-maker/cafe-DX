@@ -3,34 +3,24 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../header.jsp" %>
 
-<div class="container">
+<h2>${ tableNum }番テーブルのお会計</h2>
 
-	<h2>${ tableNum }番テーブルのお会計</h2>
-	
-	<table>
+<table>
+	<c:forEach var="p" items="${payments}">
 		<tr>
-			<th>商品名</th>
-			<th>商品単価</th>
-			<th>個数</th>
-			<th>小計</th>
+			<td>商品名：${ p.menuName }</td>
+			<td>商品単価：${ p.price }</td>
+			<td>個数：${ p.count }</td>
+			<td>小計：${ p.subtotal }</td>
 		</tr>
-		
-		<c:forEach var="p" items="${payments}">
-			<tr>
-				<td>${ p.menuName }</td>
-				<td>${ p.price }</td>
-				<td>${ p.count }</td>
-				<td>${ p.subtotal }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<h4>合計：${ total }円</h4>
-	
-	<form action="CheckoutConfirm.action" method="post">
-		<input type="hidden" name="tableNum" value="${ tableNum }">
-		<input type="submit" value="会計完了" class="submit-btn">
-	</form>
+	</c:forEach>
+</table>
 
-</div>
+<h4>合計：${ total }円</h4>
+
+<form action="CheckoutConfirm.action" method="post">
+	<input type="hidden" name="tableNum" value="${ tableNum }">
+	<input type="submit" value="会計完了">
+</form>
+
 <%@include file="../loginfooter.jsp" %>

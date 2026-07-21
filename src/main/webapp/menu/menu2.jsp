@@ -8,24 +8,25 @@
 <div class="menu-box">
 
 <div class="box">
-<a href="${ pageContext.request.contextPath }/order/Order.action">注文</a>
+<a href="${ pageContext.request.contextPath }/order/Order.action">注文管理</a>
 </div>
 
 <div class="box">
-<a href="${ pageContext.request.contextPath }/checkout/checkout_top.jsp">会計</a>
+<a href="${ pageContext.request.contextPath }/checkout/checkout_top.jsp">会計管理</a>
 </div>
 
 <div class="box">
-<a href="${ pageContext.request.contextPath }/stock/StockList.action">在庫一覧</a>
+<a href="/cafeDX/Sales/#">売上管理</a>
 </div>
 
 <div class="box">
-<a href="${ pageContext.request.contextPath }/stock/StockMenu.action">在庫管理</a>
+<a href="/cafeDX/stock/#">在庫管理</a>
 </div>
 
 <div class="box">
 <a href="${ pageContext.request.contextPath }/menu/Menu.action">商品管理</a>
 </div>
+
 
 </div>
 
