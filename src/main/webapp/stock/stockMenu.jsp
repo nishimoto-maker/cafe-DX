@@ -1,18 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>在庫管理メニュー</title>
-</head>
-<body>
-    <h1>在庫管理メニュー</h1>
-    <ul>
-        <li><a href="${pageContext.request.contextPath}/stock/stockRegister.jsp">在庫新規登録</a></li>
-        <li><a href="${pageContext.request.contextPath}/stock/StockList.action">入出庫修正・更新</a></li>
-        <li><a href="${pageContext.request.contextPath}/stock/StockList.action">在庫一覧・確認</a></li>
-    </ul>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ include file="../loginheader.jsp" %>
+
+<div class="container" style="text-align: center;">
+
+    <h2>在庫管理メニュー</h2>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 30px; margin-bottom: 30px;">
+    	<div class="box" style="width: 250px; height: 60px;">
+            <a href="${pageContext.request.contextPath}/stock/stockRegister.jsp" style="font-size: 18px; text-decoration: none;">在庫新規登録</a>
+        </div>
+        
+        <div class="box" style="width: 250px; height: 60px;">
+            <a href="${pageContext.request.contextPath}/stock/StockList.action" style="font-size: 18px; text-decoration: none;">入出庫修正・更新</a>
+        </div>
+        
+        <div class="box" style="width: 250px; height: 60px;">
+            <a href="${pageContext.request.contextPath}/stock/StockList.action" style="font-size: 18px; text-decoration: none;">在庫一覧・確認</a>
+        </div>
+    </div>
     <br>
-    <a href="${pageContext.request.contextPath}/menu/menu.jsp">メニューに戻る</a>
-</body>
-</html>
+    <hr>
+    
+    <div style="margin-top: 25px;">
+        <a href="${pageContext.request.contextPath}/menu/menu.jsp" class="reserve-btn" style="text-decoration: none; width: 180px; display: inline-block; padding: 10px 0;">メニューに戻る</a>
+    </div>
+
+</div>
+
+<%@ include file="../loginfooter.jsp" %>
