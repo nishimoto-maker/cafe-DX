@@ -285,6 +285,19 @@ th{
     cursor:pointer;
 }
 
+/* 送信ボタン */
+.submit-btn{
+    margin:0 auto;
+    padding:6px 15px;
+    background:burlywood;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+.submit-btn:hover{
+    background:#8b5a2b;
+}
 
 .reserve-btn:hover{
     background:#8b5a2b;
