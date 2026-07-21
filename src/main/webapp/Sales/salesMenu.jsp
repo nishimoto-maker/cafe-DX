@@ -12,7 +12,7 @@
 <body>
 
 <div class="main-back">
-    <a href="/cafeDX/" class="main-back-btn">
+    <a href="${pageContext.request.contextPath}/menu/menu.jsp" class="main-back-btn">
         ← メインメニューに戻る
     </a>
 </div>
