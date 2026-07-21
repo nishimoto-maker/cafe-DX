@@ -10,42 +10,41 @@ import bean.SalesBean;
 
 public class SalesDAO extends DAO {
 
-    // 日別売上を取得
     public List<SalesBean> getDailySales() throws Exception {
-
-        List<SalesBean> list = new ArrayList<>();
 
         Connection con = getConnection();
 
         String sql =
-            "SELECT o.ordered_by, m.menu_name, o.count, m.price, " +
-            "(o.count * m.price) AS total " +
-            "FROM \"order\" o " +
-            "JOIN menu m ON o.menu_id = m.menu_id " +
-            "WHERE o.payment_flg = TRUE " +
-            "ORDER BY o.ordered_by";
+            "select ordered_by, " +
+            "sum(m.price * o.count) as total " +
+            "from orders o " +
+            "inner join menu m " +
+            "on o.menu_id = m.menu_id " +
+            "where payment_flg = true " +
+            "group by ordered_by " +
+            "order by ordered_by;";
 
-        PreparedStatement ps = con.prepareStatement(sql);
+        PreparedStatement st = con.prepareStatement(sql);
 
-        ResultSet rs = ps.executeQuery();
+        ResultSet rs = st.executeQuery();
 
-        while (rs.next()) {
+        List<SalesBean> list = new ArrayList<>();
 
-            SalesBean bean = new SalesBean();
+        while(rs.next()){
 
-            bean.setDate(rs.getString("ordered_by"));
-            bean.setMenuName(rs.getString("menu_name"));
-            bean.setCount(rs.getInt("count"));
-            bean.setPrice(rs.getInt("price"));
-            bean.setTotal(rs.getInt("total"));
+            SalesBean s = new SalesBean();
 
-            list.add(bean);
+            s.setDate(rs.getString("ordered_by"));
+            s.setTotal(rs.getInt("total"));
+
+            list.add(s);
         }
 
         rs.close();
-        ps.close();
+        st.close();
         con.close();
 
         return list;
     }
+
 }
