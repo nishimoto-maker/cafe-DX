@@ -16,7 +16,7 @@
 
 <div class="header">
 
-    <a href="${pageContext.request.contextPath}/sales/salesMenu.action"
+    <a href="${pageContext.request.contextPath}/sales/SalesMenu.action"
        class="back-btn">
         ← 戻る
     </a>
