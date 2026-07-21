@@ -14,7 +14,7 @@
 
 <div class="header">
 
-    <a href="SalesMenuServlet" class="back-btn">
+    <a href="/cafeDX/sales/SalesMenu.action" class="back-btn">
         ← 戻る
     </a>
 
