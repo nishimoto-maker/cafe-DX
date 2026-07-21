@@ -10,42 +10,41 @@ import bean.SalesBean;
 
 public class SalesDAO extends DAO {
 
-    // 日別売上を取得
     public List<SalesBean> getDailySales() throws Exception {
 
-        List<SalesBean> list = new ArrayList<>();
-
-        Connection con = getConnection();
+        List<SalesBean> salesList = new ArrayList<>();
 
         String sql =
-            "SELECT o.ordered_by, m.menu_name, o.count, m.price, " +
-            "(o.count * m.price) AS total " +
-            "FROM \"order\" o " +
-            "JOIN menu m ON o.menu_id = m.menu_id " +
-            "WHERE o.payment_flg = TRUE " +
-            "ORDER BY o.ordered_by";
+                "select " +
+                "o.ordered_at as sales_date, " +
+                "sum(o.count * m.price) as total_sales " +
+                "from orders o " +
+                "inner join menu m " +
+                "on o.menu_id = m.menu_id " +
+                "where o.payment_flg = true " +
+                "group by o.ordered_at " +
+                "order by o.ordered_at";
 
-        PreparedStatement ps = con.prepareStatement(sql);
+        try (
+            Connection con = getConnection();
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+        ) {
 
-        ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
 
-        while (rs.next()) {
+                SalesBean sales = new SalesBean();
 
-            SalesBean bean = new SalesBean();
+                sales.setSalesDate(
+                        rs.getDate("sales_date"));
 
-            bean.setDate(rs.getString("ordered_by"));
-            bean.setMenuName(rs.getString("menu_name"));
-            bean.setCount(rs.getInt("count"));
-            bean.setPrice(rs.getInt("price"));
-            bean.setTotal(rs.getInt("total"));
+                sales.setTotalSales(
+                        rs.getInt("total_sales"));
 
-            list.add(bean);
+                salesList.add(sales);
+            }
         }
 
-        rs.close();
-        ps.close();
-        con.close();
-
-        return list;
+        return salesList;
     }
 }

@@ -16,11 +16,15 @@
 </div>
 
 <div class="box">
-<a href="/cafeDX/Sales/#">売上管理</a>
+<a href="${ pageContext.request.contextPath }/stock/StockList.action">在庫一覧</a>
 </div>
 
 <div class="box">
-<a href="/cafeDX/stock/#">在庫管理</a>
+<a href="${ pageContext.request.contextPath }/stock/StockMenu.action">在庫管理</a>
+</div>
+
+<div class="box">
+<a href="/cafeDX/Sales/#">売上管理</a>
 </div>
 
 <div class="box">
