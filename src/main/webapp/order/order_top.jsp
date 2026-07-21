@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-<%@include file="../loginheader.jsp" %>
+<%@include file="../header.jsp" %>
 <div class="container">
 
 	<h2>注文トップ</h2>
 	
 	<div class="menu-box">
-		<div class="box">
+		<div class="button">
 			<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
 				ホームページに戻る
 			</a>
 		</div>
-		<div class="box">
+		<div class="button">
 			<a href="order_cart.jsp">
 				カートを見る
 			</a>
@@ -23,7 +23,7 @@
 		ジャンルでソートできるようにする
 		今どのジャンルでソートしてるか分かるように表示
 	-->
-	<form action="Order.action" method="post">
+	<form action="Order.action" method="post" class="input-form">
 		<h3>商品名で検索</h3>
 		<p>「 ${ keyword } 」で検索中、、、</p>
 		<p><input type="text" name="keyword" placeholder="商品名を入力"></p>
@@ -42,11 +42,6 @@
 	</form>
 	
 	<hr>
-	<!-- 
-		メニューを表示する。
-		それぞれについたボタンで詳細ページに飛べ、
-		その先で在庫数確認、カートに追加できる。
-	-->
 	
 	<table>
 		<tr>
@@ -71,7 +66,7 @@
 								value="${ menu.menu_id }"
 							>
 						</p>
-						<p><input type="submit" value="注文を追加"></p>
+						<p><input type="submit" value="注文を追加" class="submit-btn"></p>
 					</form>
 				</td>
 			</tr>
