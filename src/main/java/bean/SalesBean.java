@@ -1,50 +1,26 @@
 package bean;
 
-public class SalesBean {
+import java.io.Serializable;
+import java.sql.Date;
 
-    private String date;
-    private String menuName;
-    private int count;
-    private int price;
-    private int total;
+public class SalesBean implements Serializable {
 
-    public String getDate() {
-        return date;
+    private Date salesDate;
+    private int totalSales;
+
+    public Date getSalesDate() {
+        return salesDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setSalesDate(Date salesDate) {
+        this.salesDate = salesDate;
     }
 
-    public String getMenuName() {
-        return menuName;
+    public int getTotalSales() {
+        return totalSales;
     }
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
+    public void setTotalSales(int totalSales) {
+        this.totalSales = totalSales;
     }
 }
