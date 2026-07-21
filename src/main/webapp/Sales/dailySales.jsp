@@ -8,14 +8,16 @@
 <meta charset="UTF-8">
 <title>日別売上</title>
 
-<link rel="stylesheet" href="/cafeDX/css/dailySales.css">
-
+<link rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/dailySales.css">
 </head>
+
 <body>
 
 <div class="header">
 
-    <a href="/cafeDX/sales/SalesMenu.action" class="back-btn">
+    <a href="${pageContext.request.contextPath}/Sales/salesMenu.jsp"
+       class="back-btn">
         ← 戻る
     </a>
 
@@ -25,13 +27,9 @@
 
 <div class="container">
 
-    <form action="/cafeDX/sales/DailySales.action" method="post">
-
-        日付：
-        <input type="date" name="salesDate">
-
-        <input type="submit" value="検索">
-
+    <form action="${pageContext.request.contextPath}/sales/DailySales.action"
+          method="post">
+        <input type="submit" value="更新">
     </form>
 
     <br>
@@ -44,22 +42,31 @@
 
         <%
         List<SalesBean> salesList =
-            (List<SalesBean>)request.getAttribute("salesList");
+            (List<SalesBean>) request.getAttribute("salesList");
 
-        if(salesList != null){
-            for(SalesBean s : salesList){
+        if (salesList != null && !salesList.isEmpty()) {
+
+            for (SalesBean sales : salesList) {
         %>
 
         <tr>
-            <td><%= s.getDate() %></td>
-            <td><%= s.getTotal() %>円</td>
+            <td><%= sales.getSalesDate() %></td>
+            <td><%= String.format("%,d", sales.getTotalSales()) %>円</td>
         </tr>
 
         <%
             }
-        }
+
+        } else {
         %>
 
+        <tr>
+            <td colspan="2">売上データがありません。</td>
+        </tr>
+
+        <%
+        }
+        %>
     </table>
 
 </div>
