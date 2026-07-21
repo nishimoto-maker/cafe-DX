@@ -23,6 +23,7 @@
 <a href="${ pageContext.request.contextPath }/stock/StockMenu.action">在庫管理</a>
 </div>
 
+
 <div class="box">
 <a href="#">売上管理</a>
 </div>

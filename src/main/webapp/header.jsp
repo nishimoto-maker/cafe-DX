@@ -12,10 +12,10 @@
   <div class="title">
     <c:choose>
       <c:when test="${sessionScope.staff.staff_id == 'admin'}">
-        <a href="${pageContext.request.contextPath}/cafeDX/menu2.jsp">cafeDXシステム</a>
+        <a href="${pageContext.request.contextPath}/cafeDX/menu/menu2.jsp">cafeDXシステム</a>
       </c:when>
       <c:otherwise>
-        <a href="${pageContext.request.contextPath}/cafeDX/menu.jsp">cafeDXシステム</a>
+        <a href="${pageContext.request.contextPath}/cafeDX/menu/menu.jsp">cafeDXシステム</a>
       </c:otherwise>
     </c:choose>
   </div>

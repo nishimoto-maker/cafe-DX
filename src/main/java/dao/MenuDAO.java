@@ -63,7 +63,7 @@ public class MenuDAO extends DAO {
         Connection con = getConnection();
         
         // SQL文
-        String sql = "select * from menu where 1 = 1";
+        String sql = "select * from menu where serve = true";
         // 検索条件が送信されていればwhere句追加
         if (keyword != null && !keyword.isEmpty()) {
         	sql += (" and menu_name like ?");
