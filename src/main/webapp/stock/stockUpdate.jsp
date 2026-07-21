@@ -13,6 +13,7 @@
     <form action="${pageContext.request.contextPath}/stock/StockRegister.action" method="post" class="input-form">
         <%-- hiddenでmenu_idを送信 --%>
         <input type="hidden" name="menu_id" value="${stock.menu_id}">
+        <input type="hidden" name="from" value="update">
         
         <p>商品名: ${stock.menu_name}</p>
         <p>商品ID: ${stock.menu_id}</p>

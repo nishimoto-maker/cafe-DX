@@ -17,13 +17,28 @@ public class StockRegisterAction extends Action {
         String reason = request.getParameter("reason");
         String mode = request.getParameter("mode");
         
-        String referer = request.getHeader("referer");
+        // フォームから送られてきた "from" パラメータを取得
+        String from = request.getParameter("from");
         String returnPage = "/stock/stockRegister.jsp";
-        // 遷移元が更新画面なら更新画面へ戻す
-        if (referer != null && referer.contains("Update")) {
+        // "update" から送られてきた場合は、エラー時も更新画面に戻す
+        if ("update".equals(from)) {
             returnPage = "/stock/stockUpdate.jsp";
         }
         
+        // DAOと全データリストの準備
+        StockDAO dao = new StockDAO();
+        List<Stock> list = dao.searchAll();
+
+        // 共通：更新画面に戻る際、画面表示用の stock オブジェクトを再取得してセットするヘルパー処理
+        if ("update".equals(from) && menuId != null) {
+            for (Stock s : list) {
+                if (s.getMenu_id().equals(menuId)) {
+                    request.setAttribute("stock", s);
+                    break;
+                }
+            }
+        }
+
         // IDバリデーション：空チェック
         if (menuId == null || menuId.isEmpty()) {
             request.setAttribute("error", "商品IDを入力してください。");
@@ -31,7 +46,7 @@ public class StockRegisterAction extends Action {
         }
         
         // IDバリデーション：不正文字チェック
-        if (menuId != null && !menuId.matches("^[a-zA-Z0-9]+$")) {
+        if (!menuId.matches("^[a-zA-Z0-9]+$")) {
             request.setAttribute("error", "使用できない文字が含まれています。");
             request.setAttribute("menu_id", menuId);
             return returnPage;
@@ -40,7 +55,7 @@ public class StockRegisterAction extends Action {
         // 数量入力チェック
         if (countStr == null || countStr.isEmpty()) {
             request.setAttribute("error", "数量を入力してください。");
-            request.setAttribute("list", new StockDAO().searchAll());
+            request.setAttribute("list", list);
             return returnPage;
         }
 
@@ -58,14 +73,12 @@ public class StockRegisterAction extends Action {
         // 数量の妥当性チェック
         if (countInput <= 0) {
             request.setAttribute("error", "数量は1以上を入力してください。");
-            request.setAttribute("list", new StockDAO().searchAll());
+            request.setAttribute("list", list);
             return returnPage;
         }
 
         // 在庫変動計算の準備
         int changeCount = ("sub".equals(mode)) ? -countInput : countInput;
-        StockDAO dao = new StockDAO();
-        List<Stock> list = dao.searchAll();
 
         // 現在の在庫数特定
         int currentTotal = 0;
@@ -78,8 +91,7 @@ public class StockRegisterAction extends Action {
             }
         }
 
-        // 重複登録チェック
-        if (isExists && referer != null && referer.contains("stockRegister.jsp")) {
+        if (isExists && !"update".equals(from)) {
             request.setAttribute("error", "この商品は既に登録されています。");
             return returnPage;
         }

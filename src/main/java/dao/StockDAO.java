@@ -14,7 +14,7 @@ public class StockDAO extends DAO {
     // 全データ取得（ID降順）
     public List<Stock> getList() throws Exception {
         List<Stock> list = new ArrayList<>();
-        String sql = "SELECT * FROM stock ORDER BY stock_id DESC";
+        String sql = "SELECT s.*, m.menu_name FROM stock s LEFT JOIN menu m ON s.menu_id = m.menu_id ORDER BY s.stock_id DESC";
         
         // 自動クローズ対応
         try (Connection con = getConnection();
@@ -30,6 +30,7 @@ public class StockDAO extends DAO {
                 s.setReason(rs.getString("reason"));
                 s.setUpdate_at(rs.getTimestamp("update_at").toLocalDateTime());
                 s.setStatus(rs.getInt("status"));
+                s.setMenu_name(rs.getString("menu_name"));
                 list.add(s);
             }
         }
@@ -61,7 +62,7 @@ public class StockDAO extends DAO {
     
     // 指定IDのデータ取得
     public Stock get(int id) throws Exception {
-        String sql = "SELECT * FROM stock WHERE stock_id = ?";
+    	String sql = "SELECT s.*, m.menu_name FROM stock s LEFT JOIN menu m ON s.menu_id = m.menu_id WHERE s.stock_id = ?";
         
         try (Connection con = getConnection();
              PreparedStatement st = con.prepareStatement(sql)) {
@@ -78,6 +79,7 @@ public class StockDAO extends DAO {
                     s.setReason(rs.getString("reason"));
                     s.setUpdate_at(rs.getTimestamp("update_at").toLocalDateTime());
                     s.setStatus(rs.getInt("status"));
+                    s.setMenu_name(rs.getString("menu_name"));
                     return s;
                 }
             }
