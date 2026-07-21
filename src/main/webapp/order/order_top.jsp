@@ -48,12 +48,19 @@
 -->
 
 <table>
+	<tr>
+		<td>商品ID</td>
+		<td>商品名</td>
+		<td>値段</td>
+		<td>ジャンル</td>
+		<td></td>
+	</tr>
 	<c:forEach var="menu" items="${ menus }">
 		<tr>
-			<td>商品ID：${ menu.menu_id }</td>
-			<td>商品名：${ menu.menu_name }</td>
-			<td>値段：${ menu.price }</td>
-			<td>ジャンル：${ menu.genre }</td>
+			<td>${ menu.menu_id }</td>
+			<td>${ menu.menu_name }</td>
+			<td>${ menu.price }</td>
+			<td>${ menu.genre }</td>
 			<td>
 				<form action="MenuGet.action">
 					<p>
