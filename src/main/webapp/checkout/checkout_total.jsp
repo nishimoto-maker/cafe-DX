@@ -6,12 +6,19 @@
 <h2>${ tableNum }番テーブルのお会計</h2>
 
 <table>
+	<tr>
+		<td>商品名</td>
+		<td>商品単価</td>
+		<td>個数</td>
+		<td>小計</td>
+	</tr>
+	
 	<c:forEach var="p" items="${payments}">
 		<tr>
-			<td>商品名：${ p.menuName }</td>
-			<td>商品単価：${ p.price }</td>
-			<td>個数：${ p.count }</td>
-			<td>小計：${ p.subtotal }</td>
+			<td>${ p.menuName }</td>
+			<td>${ p.price }</td>
+			<td>${ p.count }</td>
+			<td>${ p.subtotal }</td>
 		</tr>
 	</c:forEach>
 </table>
