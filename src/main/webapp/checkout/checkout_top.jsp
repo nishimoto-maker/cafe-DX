@@ -15,7 +15,7 @@
 	</div>
 	<hr>
 	
-	<form action="Checkout.action" class="input-form">
+	<form action="Checkout.action" class="checkout-form">
 		<h4>お会計をするテーブル番号を指定してください</h4>
 		<select name="tableNum">
 			<c:forEach var="i" begin="1" end="10">

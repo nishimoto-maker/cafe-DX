@@ -28,8 +28,10 @@
 			<h4>合計：${ total }円</h4>
 		</div>
 		
-		<input type="hidden" name="tableNum" value="${ tableNum }">
-		<input type="submit" value="会計完了" class="submit-btn">
+		<div class="checkout-form">
+			<input type="hidden" name="tableNum" value="${ tableNum }">
+			<input type="submit" value="会計完了">
+		</div>
 	</form>
 
 </div>
