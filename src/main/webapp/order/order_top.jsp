@@ -9,7 +9,7 @@
 	<div class="menu-box">
 		<div class="button">
 			<a href="${ pageContext.request.contextPath }/menu/menu.jsp">
-				ホームページに戻る
+				ホームに戻る
 			</a>
 		</div>
 		<div class="button">

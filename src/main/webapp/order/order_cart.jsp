@@ -40,7 +40,7 @@
 			<td>
 				<form action="CartRemove.action" method="post">
 					<input type="hidden" name="ODindex" value="${ status.index }">
-					<input type="submit" value="注文を削除する">
+					<input type="submit" value="注文を削除する" class="submit-btn">
 				</form>
 			</td>
 		</tr>

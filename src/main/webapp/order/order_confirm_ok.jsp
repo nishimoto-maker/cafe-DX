@@ -3,12 +3,14 @@
 <%@include file="../header.jsp" %>
 <div class="container">
 	
-	<h3>注文の登録を確定しました！</h3>
+	<h2>注文の登録を確定しました！</h2>
 	<p>${ line }件登録されました</p>
 	
 	<hr>
 	
-	<a href="Order.action">メニュー一覧へ戻る</a>
+	<div class="button">
+		<a href="Order.action">メニュー一覧へ戻る</a>
+	</div>
 
 </div>
 <%@include file="../loginfooter.jsp" %>
