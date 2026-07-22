@@ -10,19 +10,68 @@ h1 {
     margin-bottom: 40px;
 }
 
-.header{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    margin-top:20px;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
 }
 
-.back-btn{
-    position:absolute;
-    left:30px;
+.back-btn {
+    position: absolute;
+    left: 30px;
 }
 
-.header h1{
-    margin:0;
+.header h1 {
+    margin: 0;
+}
+
+/* --- 売上テーブル用の追加スタイル --- */
+.sales-table {
+    width: 80%;
+    max-width: 700px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sales-table th, .sales-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.sales-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.sales-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.sales-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.menu-name {
+    text-align: left; /* 商品名は左寄せ */
+    font-weight: 500;
+}
+
+.count {
+    text-align: right; /* 販売個数は右寄せ */
+}
+
+.amount {
+    text-align: right; /* 売上金額は右寄せ */
+    font-weight: bold;
+}
+
+.no-data {
+    margin-top: 40px;
+    color: #666;
+    font-size: 16px;
 }
