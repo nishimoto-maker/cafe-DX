@@ -24,7 +24,7 @@
 </div>
 
 <div class="box">
-<a href="#">売上管理</a>
+<a href="${ pageContext.request.contextPath }/Sales/salesMenu.jsp">売上管理</a>
 </div>
 
 <div class="box">
