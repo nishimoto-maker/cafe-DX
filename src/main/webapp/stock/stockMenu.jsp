@@ -23,7 +23,7 @@
     <hr>
     
     <div style="margin-top: 25px;">
-        <a href="${pageContext.request.contextPath}/menu/menu.jsp" class="reserve-btn" style="text-decoration: none; width: 180px; display: inline-block; padding: 10px 0;">メニューに戻る</a>
+        <a href="${pageContext.request.contextPath}/menu/menu.jsp" class="reserve-btn" style="text-decoration: none; width: 180px; display: inline-block; padding: 10px 0;">ホームページに戻る</a>
     </div>
 
 </div>
