@@ -24,14 +24,23 @@
 	
 	
 	<form action="CheckoutConfirm.action" method="post" class="checkout-footer">
-		<div class="total">
-			<h4>合計：${ total }円</h4>
-		</div>
-		
-		<div class="checkout-form">
-			<input type="hidden" name="tableNum" value="${ tableNum }">
-			<input type="submit" value="会計完了">
-		</div>
+		<c:choose>
+			<c:when test="${ total > 0}">
+				<div class="total">
+					<h4>合計：${ total }円</h4>
+				</div>
+				
+				<div class="checkout-form">
+					<input type="hidden" name="tableNum" value="${ tableNum }">
+					<input type="submit" value="会計完了">
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="total">
+					<h4>お会計はありません。</h4>
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</form>
 
 </div>
