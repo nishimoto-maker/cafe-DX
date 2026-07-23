@@ -22,7 +22,7 @@
 <body>
 
 <div class="header">
-    <a href="${pageContext.request.contextPath}/Sales/salesMenu.jsp" class="back-btn">← 戻る</a>
+    <a href="${pageContext.request.contextPath}/sales/salesMenu.jsp" class="back-btn">← 戻る</a>
     <h1>日別売上推移</h1>
 </div>
 

@@ -22,6 +22,6 @@ public class SalesReportAction extends Action {
         request.setAttribute("salesList", salesList);
 
         // グラフ表示用のJSPへフォワード
-        return "/Sales/salesReport.jsp";
+        return "/sales/salesReport.jsp";
     }
 }

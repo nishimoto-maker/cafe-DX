@@ -25,6 +25,6 @@ public class DailySalesAction extends Action {
                 "salesList",
                 salesList);
 
-        return "/Sales/dailySales.jsp";
+        return "/sales/dailySales.jsp";
     }
 }

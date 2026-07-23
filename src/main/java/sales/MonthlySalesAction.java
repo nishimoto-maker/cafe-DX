@@ -22,6 +22,6 @@ public class MonthlySalesAction extends Action {
                 "salesList",
                 salesList);
 		
-		return "/Sales/monthlySales.jsp";
+		return "/sales/monthlySales.jsp";
     }
 }

@@ -21,6 +21,6 @@ public class SalesDetailAction extends Action {
                 "salesList",
                 salesList);
 		
-		return "/Sales/salesDetail.jsp";
+		return "/sales/salesDetail.jsp";
     }
 }

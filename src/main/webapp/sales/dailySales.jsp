@@ -17,7 +17,7 @@
     <div class="container">
         <div class="header">
             <!-- 戻るボタン（パスはチームの構成に合わせて変更してください） -->
-            <a href="/cafeDX/Sales/salesMenu.jsp" class="back-btn">戻る</a>
+            <a href="/cafeDX/sales/salesMenu.jsp" class="back-btn">戻る</a>
             <h1>日別売上</h1>
         </div>
 
